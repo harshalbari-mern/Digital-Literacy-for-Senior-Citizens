@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Digital Literacy</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+<nav class="nav-links">
+
+    <button onclick="window.location.href='index.html'">
+        Home
+    </button>
+
+    <button onclick="window.location.href='about.html'">
+        About
+    </button>
+
+    <button onclick="window.location.href='learn.html'">
+        Learn
+    </button>
+
+    <button onclick="window.location.href='quiz.html'">
+        Quiz
+    </button>
+
+    <button onclick="window.location.href='career.html'">
+        Career
+    </button>
+
+    <button onclick="window.location.href='contact.html'">
+        Contact
+    </button>
+</nav>
+  <!-- Logout - Right Corner -->
+        <button class="logout-btn" onclick="logout()">
+            👤 Logout
+        </button>
+
+
+        </div>
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard">
+
+        <!-- Welcome -->
+
+        <section class="dashboard-header">
+
+            <h1>
+                Welcome, <span id="userName">User</span> 👋
+            </h1>
+
+            <p>
+                Track your learning progress and continue your digital literacy journey.
+            </p>
+
+        </section>
+
+
+        <!-- ================= PROGRESS ================= -->
+
+        <section class="dashboard-progress">
+
+            <div class="progress-heading">
+
+                <div>
+                    <h2>Learning Progress</h2>
+                    <p>Complete all modules to unlock the quiz.</p>
+                </div>
+
+                <span id="dashboardProgressText">
+                    0 / 6 Completed
+                </span>
+
+            </div>
+
+            <div class="dashboard-progress-bar">
+
+                <div id="dashboardProgressFill"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="dashboard-cards">
+
+            <!-- Modules -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📚
+                </div>
+
+                <h3>Modules Completed</h3>
+
+                <strong id="completedModules">
+                    0 / 6
+                </strong>
+
+                <p>
+                    Learning modules
+                </p>
+
+            </div>
+
+
+            <!-- Quiz -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📝
+                </div>
+
+                <h3>Quiz Score</h3>
+
+                <strong id="quizScore">
+                    Not Attempted
+                </strong>
+
+                <p>
+                    Best quiz result
+                </p>
+
+            </div>
+
+
+            <!-- Certificate -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🏆
+                </div>
+
+                <h3>Certificate</h3>
+
+                <strong id="certificateStatus">
+                    Locked 🔒
+                </strong>
+
+                <p>
+                    Complete the quiz to unlock
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <section class="dashboard-actions">
+
+            <button onclick="window.location.href='learn.html'">
+                📚 Continue Learning
+            </button>
+
+            <button onclick="window.location.href='quiz.html'">
+                📝 Take Quiz
+            </button>
+
+            <button
+                id="certificateBtn"
+                onclick="window.location.href='certificate.html'">
+
+                🏆 View Certificate
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= MODULE STATUS ================= -->
+
+        <section class="module-status">
+
+            <div class="module-status-header">
+
+                <h2>Your Learning Modules</h2>
+
+                <p>
+                    Check your completion status below.
+                </p>
+
+            </div>
+
+
+            <div class="module-status-grid">
+
+                <!-- Smartphone -->
+
+                <div
+                    class="status-item"
+                    id="status-smartphone">
+
+                    <div class="status-left">
+                        <span class="status-icon">📱</span>
+
+                        <div>
+                            <h3>Smartphone Basics</h3>
+                            <p>Learn smartphone fundamentals</p>
+                        </div>
+                    </div>
+<span class="module-status-text">
+    Not Completed
+</span>
+                </div>
+
+
+                <!-- WhatsApp -->
+
+                <div
+                    class="status-item"
+                    id="status-whatsapp">
+
+                    <div class="status-left">
+                        <span class="status-icon">💬</span>
+
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>Messages and video calls</p>
+                        </div>
+                    </div>
+
+                    <span class="module-status-text">
+    Not Completed
+</span>
+
+                </div>
+
+
+                <!-- UPI -->
+
+                <div
+                    class="status-item"
+                    id="status-upi">
+
+                    <div class="status-left">
+                        <span class="status-icon">💳</span>
+
+                        <div>
+                            <h3>UPI Payments</h3>
+                            <p>Safe digital payments</p>
+                        </div>
+                    </div>
+<span class="module-status-text">
+    Not Completed
+</span>
+
+                </div>
+
+
+                <!-- Cyber Safety -->
+
+                <div
+                    class="status-item"
+                    id="status-cyber">
+
+                    <div class="status-left">
+                        <span class="status-icon">🛡️</span>
+
+                        <div>
+                            <h3>Cyber Safety</h3>
+                            <p>Protect yourself from scams</p>
+                        </div>
+                    </div>
+
+                    <span class="module-status-text">
+    Not Completed
+</span>
+
+                </div>
+
+
+                <!-- Internet -->
+
+                <div
+                    class="status-item"
+                    id="status-internet">
+
+                    <div class="status-left">
+                        <span class="status-icon">🌐</span>
+
+                        <div>
+                            <h3>Internet Basics</h3>
+                            <p>Search and browse safely</p>
+                        </div>
+                    </div>
+
+                    <span class="module-status-text">
+    Not Completed
+</span>
+
+                </div>
+
+
+                <!-- Video Calling -->
+
+                <div
+                    class="status-item"
+                    id="status-video">
+
+                    <div class="status-left">
+                        <span class="status-icon">📹</span>
+
+                        <div>
+                            <h3>Video Calling</h3>
+                            <p>Connect with family and friends</p>
+                        </div>
+                    </div>
+<span class="module-status-text">
+    Not Completed
+</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Digital Literacy for Senior Citizens
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

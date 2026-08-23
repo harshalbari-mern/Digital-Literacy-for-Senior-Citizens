@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Digital Literacy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><h2>Digital Literacy</h2></div>
+        <nav>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="logout()">Logout</button>
+        </nav>
+    </header>
+    <main class="admin-page">
+        <section class="dashboard-header">
+            <h1>Admin <span>Panel</span></h1>
+            <p>Secure overview of learner progress, certificates, and internship applications.</p>
+        </section>
+        <section class="admin-summary">
+            <article class="admin-summary-card"><span>Total Users</span><strong id="totalUsers">—</strong></article>
+            <article class="admin-summary-card"><span>Certificates</span><strong id="totalCertificates">—</strong></article>
+            <article class="admin-summary-card"><span>Internship Applications</span><strong id="totalInternships">—</strong></article>
+        </section>
+        <section class="admin-section">
+            <h2>Users and Learning Progress</h2>
+            <div class="admin-table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Modules</th><th>Quiz</th><th>Certificate</th></tr></thead><tbody id="usersTable"></tbody></table></div>
+        </section>
+        <section class="admin-section">
+            <h2>Certificate Records</h2>
+            <div class="admin-table-wrap"><table><thead><tr><th>Name</th><th>Certificate ID</th><th>Score</th><th>Issued</th></tr></thead><tbody id="certificatesTable"></tbody></table></div>
+        </section>
+        <section class="admin-section">
+            <h2>Internship Submissions</h2>
+            <div class="admin-table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th><th>College</th><th>Domain</th><th>Skills</th><th>Submitted</th></tr></thead><tbody id="internshipsTable"></tbody></table></div>
+        </section>
+    </main>
+    <script src="js/admin.js"></script>
+</body>
+</html>

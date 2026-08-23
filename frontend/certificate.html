@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificate</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<section class="certificate-page">
+
+<div class="certificate">
+
+<div class="watermark">
+DIGITAL LITERACY
+</div>
+
+<h3 class="top-title">
+🏆 CERTIFICATE OF ACHIEVEMENT
+</h3>
+
+<hr class="gold-line">
+
+<h1>Certificate of Completion</h1>
+
+
+<p class="cert-text">
+This certificate is proudly awarded to
+</p>
+<h2 class="student-name" id="studentName">
+    Student Name
+</h2>
+
+<p class="success">
+For Successfully Completing
+</p>
+
+<h3 class="course">
+Digital Literacy for Senior Citizens
+</h3>
+
+<div class="info-box">
+
+<div class="info">
+<b>Course</b>
+<br><br>
+Digital Literacy
+</div>
+
+<div class="info">
+    <b>Date</b>
+    <br><br>
+    <span id="certificateDate"></span>
+</div>
+<div class="info">
+    <b>Certificate ID</b>
+    <br><br>
+    <span id="certificateId"></span>
+</div>
+<div class="info">
+    <b>Quiz Score</b>
+    <br><br>
+    <span id="quizScore"></span>
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div class="seal">
+
+🏅
+
+<p>Official Seal</p>
+
+</div>
+
+
+<div class="verify-badge">
+    ✓ Verified
+</div>
+
+</div>
+
+<div class="signature-area">
+
+<div>
+
+
+<div class="signature-name">
+    Harshal Bari
+</div>
+<p>Instructor</p>
+
+</div>
+
+<div>
+
+
+<div class="signature-name">
+    Harshal Bari
+</div>
+<p>Project Guide</p>
+
+</div>
+
+</div>
+
+<button onclick="window.print()" class="download-btn">
+
+⬇ Download Certificate
+
+</button>
+
+</div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("token");
+    const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:5000"
+        : "";
+
+    if (!token) {
+        localStorage.setItem("redirectAfterLogin", "certificate.html");
+        window.location.href = "login.html";
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_BASE}/api/certificate`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(`🔒 ${data.message || "Certificate is locked."}`);
+            window.location.href = "dashboard.html";
+            return;
+        }
+
+        const certificate = data.certificate;
+        const issuedAt = new Date(certificate.issuedAt);
+        document.getElementById("studentName").textContent = certificate.userName;
+        document.getElementById("certificateId").textContent = certificate.certificateId;
+        document.getElementById("quizScore").textContent = `${certificate.quizScore} / 15`;
+        document.getElementById("certificateDate").textContent = issuedAt.toLocaleDateString("en-IN", {
+            day: "numeric", month: "long", year: "numeric"
+        });
+    } catch (error) {
+        console.error("Certificate load error:", error);
+        alert("Unable to load your certificate. Please try again.");
+        window.location.href = "dashboard.html";
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Literacy Quiz</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body><script>
+document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+
+    if (!token || !user) {
+        localStorage.setItem("redirectAfterLogin", "quiz.html");
+        alert("Please login first! 🔐");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:5000"
+        : "";
+
+    try {
+        const response = await fetch(`${API_BASE}/api/quiz/status`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            if (!data.canAttempt) {
+                alert(
+                    "🔒 Quiz Locked!\n\n" +
+                    "Please complete all 6 learning modules first.\n\n" +
+                    "Completed: " + data.completedCount + " / " + data.totalModules
+                );
+                window.location.href = "learn.html";
+                return;
+            }
+            return;
+        }
+    } catch (e) {
+        console.warn("Could not check quiz status from server, using local fallback:", e);
+    }
+
+    // Fallback to local progress check
+    const cached = JSON.parse(localStorage.getItem("userProgress") || "{}");
+    const completedList = Array.isArray(cached.completedModules) ? cached.completedModules : [];
+    if (completedList.length < 6) {
+        alert(
+            "🔒 Quiz Locked!\n\n" +
+            "Please complete all 6 learning modules first.\n\n" +
+            "Completed: " + completedList.length + " / 6"
+        );
+        window.location.href = "learn.html";
+    }
+});
+</script>
+
+<section class="quiz-page">
+
+    <div class="quiz-box">
+
+        <h1>Digital Literacy Quiz</h1>
+
+<p>
+    Answer all <b>15 questions</b> carefully.<br>
+    You need at least <b>12 out of 15</b> marks to pass the quiz and receive your <b>Certificate of Completion</b>.
+</p>
+
+<form onsubmit="checkQuiz(); return false;">
+        
+
+<!-- ================= QUESTION 1 START ================= --><!-- Question 1 -->
+<div class="question">
+<h3>1. What is the main use of a smartphone?</h3>
+<label><input type="radio" name="q1" value="0"> Internet, Calls & Apps</label><br>
+<label><input type="radio" name="q1" value="1"> TV Remote</label><br>
+<label><input type="radio" name="q1" value="2"> Calculator</label><br>
+<label><input type="radio" name="q1" value="3"> None</label>
+</div>
+
+<hr>
+
+<!-- Question 2 -->
+<div class="question">
+<h3>2. Which app is used for chatting?</h3>
+<label><input type="radio" name="q2" value="0"> WhatsApp</label><br>
+<label><input type="radio" name="q2" value="1"> Camera</label><br>
+<label><input type="radio" name="q2" value="2"> Clock</label><br>
+<label><input type="radio" name="q2" value="3"> Gallery</label>
+</div>
+
+<hr>
+
+<!-- Question 3 -->
+<div class="question">
+<h3>3. Should you share your OTP with anyone?</h3>
+<label><input type="radio" name="q3" value="0"> Yes</label><br>
+<label><input type="radio" name="q3" value="1"> No</label>
+</div>
+
+<hr>
+
+<!-- Question 4 -->
+<div class="question">
+<h3>4. Which button is used to increase volume?</h3>
+<label><input type="radio" name="q4" value="0"> Volume Up</label><br>
+<label><input type="radio" name="q4" value="1"> Power Button</label><br>
+<label><input type="radio" name="q4" value="2"> Home Button</label><br>
+<label><input type="radio" name="q4" value="3"> Camera Button</label>
+</div>
+
+<hr>
+
+<!-- Question 5 -->
+<div class="question">
+<h3>5. Which app is used for video calling?</h3>
+<label><input type="radio" name="q5" value="0"> WhatsApp</label><br>
+<label><input type="radio" name="q5" value="1"> Calculator</label><br>
+<label><input type="radio" name="q5" value="2"> Calendar</label><br>
+<label><input type="radio" name="q5" value="3"> Notes</label>
+</div>
+
+<hr>
+
+<!-- Question 6 -->
+<div class="question">
+<h3>6. What should you do before making an online payment?</h3>
+<label><input type="radio" name="q6" value="0"> Check the receiver details</label><br>
+<label><input type="radio" name="q6" value="1"> Share OTP</label><br>
+<label><input type="radio" name="q6" value="2"> Ignore confirmation</label><br>
+<label><input type="radio" name="q6" value="3"> None</label>
+</div>
+
+<hr>
+
+<!-- Question 7 -->
+<div class="question">
+<h3>7. Which browser is commonly used to search the internet?</h3>
+<label><input type="radio" name="q7" value="0"> Google Chrome</label><br>
+<label><input type="radio" name="q7" value="1"> Camera</label><br>
+<label><input type="radio" name="q7" value="2"> Gallery</label><br>
+<label><input type="radio" name="q7" value="3"> Music</label>
+</div>
+
+<hr>
+
+<!-- Question 8 -->
+<div class="question">
+<h3>8. A strong password should contain:</h3>
+<label><input type="radio" name="q8" value="0"> Letters, Numbers & Symbols</label><br>
+<label><input type="radio" name="q8" value="1"> Only 123456</label><br>
+<label><input type="radio" name="q8" value="2"> Your Name</label><br>
+<label><input type="radio" name="q8" value="3"> Mobile Number Only</label>
+</div>
+<hr>
+
+<!-- Question 9 -->
+<div class="question">
+
+<h3>9. What is the full form of UPI?</h3>
+
+<label><input type="radio" name="q9" value="0"> Unified Payments Interface</label><br>
+
+<label><input type="radio" name="q9" value="1"> Universal Phone Internet</label><br>
+
+<label><input type="radio" name="q9" value="2"> User Payment ID</label><br>
+
+<label><input type="radio" name="q9" value="3"> None</label>
+
+</div>
+
+<hr>
+
+<!-- Question 10 -->
+<div class="question">
+
+<h3>10. Which app is commonly used for UPI payments?</h3>
+
+<label><input type="radio" name="q10" value="0"> Google Pay</label><br>
+
+<label><input type="radio" name="q10" value="1"> Camera</label><br>
+
+<label><input type="radio" name="q10" value="2"> Calculator</label><br>
+
+<label><input type="radio" name="q10" value="3"> Notes</label>
+
+</div>
+
+<hr>
+
+<!-- Question 11 -->
+<div class="question">
+
+<h3>11. Which app is used for sending emails?</h3>
+
+<label><input type="radio" name="q11" value="0"> Gmail</label><br>
+
+<label><input type="radio" name="q11" value="1"> WhatsApp</label><br>
+
+<label><input type="radio" name="q11" value="2"> Camera</label><br>
+
+<label><input type="radio" name="q11" value="3"> Gallery</label>
+
+</div>
+
+<hr>
+
+<!-- Question 12 -->
+<div class="question">
+
+<h3>12. What should you do if you receive a suspicious link?</h3>
+
+<label><input type="radio" name="q12" value="0"> Do not click it</label><br>
+
+<label><input type="radio" name="q12" value="1"> Open it immediately</label><br>
+
+<label><input type="radio" name="q12" value="2"> Share it with everyone</label><br>
+
+<label><input type="radio" name="q12" value="3"> Ignore phone security</label>
+
+</div>
+
+<hr>
+
+<!-- Question 13 -->
+<div class="question">
+
+<h3>13. Which app is used to search information online?</h3>
+
+<label><input type="radio" name="q13" value="0"> Google</label><br>
+
+<label><input type="radio" name="q13" value="1"> Camera</label><br>
+
+<label><input type="radio" name="q13" value="2"> Gallery</label><br>
+
+<label><input type="radio" name="q13" value="3"> Clock</label>
+
+</div>
+
+<hr>
+
+<!-- Question 14 -->
+<div class="question">
+
+<h3>14. What should you do before installing an app?</h3>
+
+<label><input type="radio" name="q14" value="0"> Download only from Play Store</label><br>
+
+<label><input type="radio" name="q14" value="1"> Download from any unknown website</label><br>
+
+<label><input type="radio" name="q14" value="2"> Share your OTP</label><br>
+
+<label><input type="radio" name="q14" value="3"> Turn off security</label>
+
+</div>
+
+<hr>
+
+<!-- Question 15 -->
+<div class="question">
+
+<h3>15. Why is a screen lock important?</h3>
+
+<label><input type="radio" name="q15" value="0"> To protect personal data</label><br>
+
+<label><input type="radio" name="q15" value="1"> To increase battery</label><br>
+
+<label><input type="radio" name="q15" value="2"> To improve camera quality</label><br>
+
+<label><input type="radio" name="q15" value="3"> No reason</label>
+
+</div>
+
+<hr>
+<hr>
+
+<button type="button" class="login-btn" onclick="checkQuiz()">
+    Submit Quiz
+</button>
+
+<h2 id="result"></h2>
+
+<br>
+
+<a href="index.html">⬅ Back to Home</a>
+
+</form>
+
+</div>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

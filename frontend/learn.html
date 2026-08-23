@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Modules</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+    <nav>
+
+        <div class="logo">
+            <h2>Digital Literacy</h2>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+             <li><a href="career.html">Career</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <button onclick="window.location.href='login.html'">
+            Login
+        </button>
+
+    </nav>
+</header>
+
+<!-- ================= LEARNING MODULES ================= -->
+
+<section class="learn-page">
+
+    <h1>Learning Modules</h1>
+    <div class="overall-progress">
+    <div class="progress-info">
+        <span>Overall Progress</span>
+        <span id="progressText">0 / 6 Completed</span>
+    </div>
+
+    <div class="overall-progress-bar">
+        <div id="overallProgressFill"></div>
+    </div>
+</div>
+
+    <div class="module-container">
+
+        <div class="card">
+            <h3>📱 Smartphone Basics</h3>
+            <p>Learn how to use your smartphone easily.</p>
+            <button onclick="window.location.href='modules/smartphone.html'">
+                 Start Learning
+        </button>
+        <span class="completion-badge" id="smartphoneStatus"></span>
+        </div>
+
+        <div class="card">
+            <h3>💬 WhatsApp</h3>
+            <p>Learn messaging, voice calls and video calls.</p>
+           <button class="start-btn"
+                 onclick="window.location.href='modules/whatsapp.html'">
+                        Start Learning
+            </button>   
+                  <span class="completion-badge" id="whatsappStatus"></span>     
+</div>
+
+        <div class="card">
+            <h3>💳 UPI Payments</h3>
+            <p>Learn safe online payments using UPI.</p>
+            <button class="start-btn"onclick="window.location.href='modules/upi.html'">
+                     Start Learning
+            </button>       
+                 <span class="completion-badge" id="upiStatus"></span>
+</div>
+
+        <div class="card">
+            <h3>🛡 Cyber Safety</h3>
+            <p>Stay safe from online fraud and scams.</p>
+<button class="start-btn"
+onclick="window.location.href='modules/cyber.html'">
+    Start Learning
+</button>      
+<span class="completion-badge" id="cyberStatus"></span>
+  </div>
+
+        <div class="card">
+            <h3>🌐 Internet Basics</h3>
+            <p>Learn how to search and browse safely.</p>
+<button class="start-btn"
+onclick="window.location.href='modules/internet.html'">
+    Start Learning
+</button>       
+<span class="completion-badge" id="internetStatus"></span>
+ </div>
+
+        <div class="card">
+            <h3>📹 Video Calling</h3>
+            <p>Learn Google Meet and WhatsApp video calls.</p>
+<button class="start-btn"
+onclick="window.location.href='modules/video-call.html'">
+    Start Learning
+</button> 
+<span class="completion-badge" id="videoCallStatus"></span>       
+</div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>© 2026 Digital Literacy for Senior Citizens | All Rights Reserved</p>
+
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/module.js"></script>
+</body>
+</html>

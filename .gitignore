@@ -1,0 +1,6 @@
+node_modules/
+frontend/backend/node_modules/
+.env
+*.log
+.DS_Store
+frontend/backend/fix_db.js

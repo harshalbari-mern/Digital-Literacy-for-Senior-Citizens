@@ -1,0 +1,915 @@
+/* ==========================================
+   MODULE PAGE
+========================================== */
+
+.module-header{
+    max-width:1200px;
+    margin:90px auto 30px;
+    padding:0 20px;
+    text-align:center;
+}
+
+.module-header h1{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.module-header p{
+    color:#94A3B8;
+}
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.progress{
+    width:100%;
+    max-width:700px;
+    height:10px;
+    background:#1E293B;
+    border-radius:50px;
+    margin:25px auto;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:12.5%;
+    height:100%;
+    background:linear-gradient(90deg,#3B82F6,#8B5CF6);
+    border-radius:50px;
+}
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.module-container{
+
+    max-width:1400px;
+
+    margin:20px auto;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:460px 1fr;
+
+    gap:45px;
+
+    align-items:start;
+
+}
+
+/* ==========================================
+   LEFT PANEL
+========================================== */
+
+.left-panel{
+
+    position:sticky;
+
+    top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    align-self:start;
+
+}
+
+/* ==========================================
+   IMAGE CARD
+========================================== */
+
+.module-image{
+
+    position:relative;
+
+    padding:20px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+
+    overflow:hidden;
+
+}
+
+.module-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(59,130,246,.28),
+    transparent 55%),
+
+    radial-gradient(circle at bottom right,
+    rgba(139,92,246,.22),
+    transparent 55%);
+
+    pointer-events:none;
+
+}
+
+.module-image img{
+
+    position:relative;
+
+    width:100%;
+
+    display:block;
+
+    border-radius:22px;
+
+    object-fit:contain;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+   VIDEO CARD
+========================================== */
+
+.module-video{
+
+    padding:20px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+
+}
+
+.module-video h2{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+.video-wrapper{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.video-wrapper iframe{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.module-content{
+
+    width:100%;
+
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.module-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-bottom:25px;
+
+}
+
+.module-card h2{
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+}
+
+.module-card p,
+.module-card li{
+
+    color:#CBD5E1;
+
+    line-height:1.9;
+
+}
+
+.module-card ul{
+
+    padding-left:20px;
+
+}
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.module-buttons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:35px;
+
+}
+
+.module-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#3B82F6,#8B5CF6);
+
+    color:#fff;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    box-shadow:0 10px 25px rgba(59,130,246,.25);
+
+}
+
+.module-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(59,130,246,.45),
+    0 0 30px rgba(139,92,246,.25);
+
+}
+
+/* ==========================================
+   CARD HOVER
+========================================== */
+
+.module-card{
+
+    transition:.35s ease;
+
+}
+
+.module-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#3B82F6;
+
+    box-shadow:
+    0 15px 35px rgba(59,130,246,.18);
+
+}
+
+/* ==========================================
+   IMAGE HOVER
+========================================== */
+
+.module-image{
+
+    animation:floating 5s ease-in-out infinite;
+
+    transition:.4s ease;
+
+}
+
+.module-image:hover{
+
+    box-shadow:
+    0 0 40px rgba(59,130,246,.45),
+    0 0 80px rgba(139,92,246,.20);
+
+}
+
+.module-image:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+   VIDEO HOVER
+========================================== */
+
+.module-video{
+
+    transition:.35s ease;
+
+}
+
+.module-video:hover{
+
+    box-shadow:
+    0 0 35px rgba(59,130,246,.35);
+
+}
+
+/* ==========================================
+   FLOATING ANIMATION
+========================================== */
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.module-container{
+
+grid-template-columns:1fr;
+
+}
+
+.left-panel{
+
+position:relative;
+
+top:0;
+
+}
+
+.module-buttons{
+
+flex-direction:column;
+
+}
+
+.module-btn{
+
+width:100%;
+
+}
+
+.module-header h1{
+
+font-size:34px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.module-header{
+
+margin-top:70px;
+
+}
+
+.module-container{
+
+padding:15px;
+
+gap:25px;
+
+}
+
+.module-card{
+
+padding:22px;
+
+}
+
+.module-card h2{
+
+font-size:22px;
+
+}
+
+.module-video h2{
+
+font-size:24px;
+
+}
+
+.module-image{
+
+padding:15px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.module-header h1{
+
+font-size:28px;
+
+}
+
+.module-btn{
+
+padding:14px;
+
+font-size:15px;
+
+}
+
+}
+/* =====================================================
+   FINAL MODULE PAGE FIX
+===================================================== */
+
+/* Full page scrolling */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Main module layout */
+.module-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 35px;
+
+    align-items: start;
+
+    box-sizing: border-box;
+    padding: 35px 25px 60px;
+}
+
+/* Left side */
+.left-panel {
+    width: 100%;
+    min-width: 0;
+
+    position: sticky;
+    top: 20px;
+
+    align-self: start;
+}
+
+/* Image */
+.module-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.module-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Video box */
+.module-video {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 22px;
+    padding: 16px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 16px;
+}
+
+/* Video heading */
+.video-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+/* Video player */
+.video-frame {
+    width: 100%;
+    max-width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+    background: #000;
+}
+
+.video-frame iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+    display: block;
+}
+
+/* Right content */
+.module-content {
+    width: 100%;
+    min-width: 0;
+
+    height: auto;
+    overflow: visible;
+}
+
+/* Cards */
+.module-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.module-buttons {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .module-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        padding: 25px 18px 50px;
+    }
+
+    .left-panel {
+        position: static;
+    }
+
+    .module-image {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .module-video {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .module-content {
+        width: 100%;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 500px) {
+
+    .module-container {
+        padding: 20px 12px 45px;
+    }
+
+    .module-video {
+        padding: 12px;
+        border-radius: 13px;
+    }
+
+    .video-frame {
+        border-radius: 9px;
+    }
+
+    .module-buttons {
+        flex-direction: column;
+    }
+
+    .module-buttons .module-btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+/* ================================
+   SMALLER VIDEO SIZE
+================================ */
+
+.module-video {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-frame {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: 100%;
+}
+/* =====================================================
+   FINAL MODULE LAYOUT
+   IMAGE → VIDEO → CONTENT
+===================================================== */
+
+.module-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+
+    padding: 35px 25px 70px;
+
+    box-sizing: border-box;
+}
+
+/* Left panel ab full width rahega */
+.left-panel {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    position: static;
+}
+
+/* Image */
+.module-image {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 0 auto 25px;
+
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.module-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Video */
+.module-video {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    padding: 16px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+}
+
+/* Video player */
+.video-frame {
+    width: 100%;
+    max-width: 600px;
+
+    aspect-ratio: 16 / 9;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #000;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+/* =====================================================
+   CONTENT BELOW VIDEO
+===================================================== */
+
+.module-content {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    height: auto;
+    overflow: visible;
+}
+
+/* Content cards */
+.module-card {
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.module-buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 15px;
+    padding-bottom: 20px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .module-container {
+        padding: 25px 15px 55px;
+
+        gap: 25px;
+    }
+
+    .left-panel {
+        width: 100%;
+    }
+
+    .module-image {
+        max-width: 420px;
+    }
+
+    .module-video {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .video-frame {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .module-content {
+        width: 100%;
+    }
+
+    .module-buttons {
+        flex-direction: column;
+    }
+
+/* =====================================================
+   MODULE PAGE – EXTRA MOBILE FIXES
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .module-header {
+        margin-top: 60px;
+        padding: 0 16px;
+    }
+
+    .module-header h1 {
+        font-size: 30px;
+    }
+
+    .progress {
+        max-width: calc(100% - 32px);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .module-header {
+        margin-top: 50px;
+    }
+
+    .module-header h1 {
+        font-size: 24px;
+    }
+
+    .module-header p {
+        font-size: 14px;
+    }
+
+    .module-card {
+        padding: 18px;
+    }
+
+    .module-card h2 {
+        font-size: 20px;
+    }
+}
