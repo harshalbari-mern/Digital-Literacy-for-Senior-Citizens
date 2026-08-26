@@ -448,6 +448,10 @@ function openInternshipForm() {
 // LOGIN - BACKEND CONNECTION
 // ==========================================
 
+const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://127.0.0.1:5000"
+    : "";
+
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -458,7 +462,7 @@ if (loginForm) {
         const password = document.getElementById("password").value;
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/login", {
+            const response = await fetch(`${API_BASE}/api/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -536,7 +540,7 @@ if (registerForm) {
         }
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/signup", {
+            const response = await fetch(`${API_BASE}/api/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
